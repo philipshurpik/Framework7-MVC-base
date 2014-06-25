@@ -1,0 +1,22 @@
+.navbar {
+  border-bottom: none;
+  background: #74baee;
+  color: #ffffff;
+}
+.navbar a.link {
+  color: #ffffff;
+}
+.contacts-list {
+  margin: 0px;
+}
+i.icon-plus {
+  height: 25px;
+  font-size: 31px;
+  line-height: 20px;
+  font-weight: 100;
+}
+.ion-ios7-person {
+  color: #74baee;
+  font-size: 25px;
+  line-height: 20px;
+}

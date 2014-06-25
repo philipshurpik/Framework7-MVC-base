@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="with-statusbar-overlay">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<title>F7 Contacts MVC</title>
+	<link rel="stylesheet" href="lib/css/framework7.css">
+	<link rel="stylesheet" href="lib/css/ionicons.css">
+	<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="statusbar-overlay"></div>
+<div class="views">
+	<div class="view view-main navbar-fixed">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left"></div>
+				<div class="center" style="left:22px">Contacts</div>
+				<div class="right">
+					<a href="#" class="link icon-only"><i class="icon icon-plus">+</i></a>
+				</div>
+			</div>
+		</div>
+		<div class="pages">
+			<div data-page="list" class="page">
+				<div class="page-content">
+					<div class="list-block contacts-list">
+						<ul></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="lib/framework7.js"></script>
+<script data-main="app" src="lib/require.js"></script>
