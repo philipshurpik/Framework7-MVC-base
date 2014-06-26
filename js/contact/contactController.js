@@ -1,4 +1,4 @@
-define(["app","js/contact/contactView"], function(app, ContactView) {
+define(["app","js/contact/contactView", "js/contactModel"], function(app, ContactView, Contact) {
 
 	var state = {isNew: false};
 	var contact = null;
@@ -13,14 +13,14 @@ define(["app","js/contact/contactView"], function(app, ContactView) {
 			var contacts = JSON.parse(localStorage.getItem("f7Base"));
 			for (var i = 0; i< contacts.length; i++) {
 				if (contacts[i].id === query.id) {
-					contact = contacts[i];
+					contact = new Contact(contacts[i]);
 					state.isNew = false;
 					break;
 				}
 			}
 		}
 		else {
-			contact = { id: Math.floor((Math.random() * 100000) + 5).toString()};
+			contact = new Contact();
 			state.isNew = true;
 		}
 		ContactView.render({
@@ -31,22 +31,27 @@ define(["app","js/contact/contactView"], function(app, ContactView) {
 	}
 
 	function saveContact() {
-		var contacts = JSON.parse(localStorage.getItem("f7Base"))
-		var newContact = app.f7.formToJSON('#contactEdit');
+		var formInput = app.f7.formToJSON('#contactEdit');
+		contact.setValues(formInput);
+		if (!contact.validate()) {
+			app.f7.alert("First name and last name are empty");
+			return;
+		}
+		var contacts = JSON.parse(localStorage.getItem("f7Base"));
 		if (state.isNew) {
-			contacts.push(newContact)
+			contacts.push(contact);
 		}
 		else {
 			for (var i = 0; i< contacts.length; i++) {
-				if (contacts[i].id === newContact.id) {
-					contacts[i] = newContact;
+				if (contacts[i].id === contact.id) {
+					contacts[i] = contact;
 					break;
 				}
 			}
 		}
 		localStorage.setItem("f7Base", JSON.stringify(contacts));
-		app.mainView.goBack();
 		app.router.load('list');
+		app.mainView.goBack();
 	}
 
 	return {

@@ -1,4 +1,4 @@
-define(["js/list/listView"], function(ListView) {
+define(["js/list/listView", "js/contactModel"], function(ListView, Contact) {
 
 	function init() {
 		var contacts = loadContacts();
@@ -13,8 +13,8 @@ define(["js/list/listView"], function(ListView) {
 
 	function tempInitializeStorage() {
 		var contacts = [
-			{id: "1", firstName: "Alex", lastName: "Black", phone: "+380501234567" },
-			{id: "2", firstName: "Kate", lastName: "White", phone: "+380507654321" }
+			new Contact({id: "1", firstName: "Alex", lastName: "Black", phone: "+380501234567" }),
+			new Contact({id: "2", firstName: "Kate", lastName: "White", phone: "+380507654321" })
 		];
 		localStorage.setItem("f7Base", JSON.stringify(contacts));
 		return JSON.parse(localStorage.getItem("f7Base"));
