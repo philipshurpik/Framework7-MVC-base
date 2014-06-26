@@ -21,7 +21,6 @@ define('app', ['js/list/listController'], function(listController) {
 	listController.init();
 	return {
 		f7: f7,
-		mainView: mainView,
-		storageName: "f7List"
+		mainView: mainView
 	};
 });
