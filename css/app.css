@@ -20,3 +20,14 @@ i.icon-plus {
   font-size: 25px;
   line-height: 20px;
 }
+.ion-ios7-football-outline {
+  color: #74baee;
+  font-size: 22px;
+  line-height: 20px;
+}
+.ion-ios7-telephone-outline {
+  color: #74baee;
+  font-size: 24px;
+  line-height: 20px;
+  padding-left: 2px;
+}
