@@ -10,7 +10,8 @@ require.config({
 		}
 	}
 });
-define('app', ['js/list/listController'], function(listController) {
+define('app', ['js/router'], function(Router) {
+	Router.init();
 	var f7 = new Framework7({
 		modalTitle: 'F7-MVC-Base',
 		animateNavBackIcon: true
@@ -18,9 +19,9 @@ define('app', ['js/list/listController'], function(listController) {
 	var mainView = f7.addView('.view-main', {
 		dynamicNavbar: true
 	});
-	listController.init();
 	return {
 		f7: f7,
-		mainView: mainView
+		mainView: mainView,
+		router: Router
 	};
 });
