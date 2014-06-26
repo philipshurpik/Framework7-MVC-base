@@ -13,7 +13,6 @@ define(['hbs!js/contact/contact'], function(viewTemplate) {
 		}
 	}
 
-
 	return {
 		render: render
 	}

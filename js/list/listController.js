@@ -1,8 +1,14 @@
 define(["js/list/listView", "js/contactModel"], function(ListView, Contact) {
 
+	var bindings = [{
+		element: '.swipeout',
+		event: 'deleted',
+		handler: itemDeleted
+	}];
+
 	function init() {
 		var contacts = loadContacts();
-		ListView.render({ model: contacts });
+		ListView.render({ model: contacts, bindings: bindings });
 	}
 
 	function loadContacts() {
@@ -18,6 +24,17 @@ define(["js/list/listView", "js/contactModel"], function(ListView, Contact) {
 		];
 		localStorage.setItem("f7Base", JSON.stringify(contacts));
 		return JSON.parse(localStorage.getItem("f7Base"));
+	}
+
+	function itemDeleted(e) {
+		var id = e.srcElement.id;
+		var contacts = JSON.parse(localStorage.getItem("f7Base"));
+		for (var i = 0; i < contacts.length; i++) {
+			if (contacts[i].id === id) {
+				contacts.splice(i, 1);
+			}
+		}
+		localStorage.setItem("f7Base", JSON.stringify(contacts));
 	}
 
 	return {

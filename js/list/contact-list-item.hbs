@@ -1,8 +1,15 @@
 {{#.}}
-	<a href="contact.html?id={{id}}" class="item-link item-content">
-		<div class="item-media"><i class="icon ion-ios7-person"></i></div>
-		<div class="item-inner">
-			<div class="item-title">{{firstName}} {{lastName}}</div>
+	<li id="{{id}}" class="swipeout">
+		<a href="contact.html?id={{id}}" class="item-link item-content swipeout-content">
+			<div class="item-media"><i class="icon ion-ios7-person"></i></div>
+			<div class="item-inner">
+				<div class="item-title">{{firstName}} {{lastName}}</div>
+			</div>
+		</a>
+		<div class="swipeout-actions">
+			<div class="swipeout-actions-inner">
+				<a href="#" class="swipeout-delete">Delete</a>
+			</div>
 		</div>
-	</a>
+	</li>
 {{/.}}
